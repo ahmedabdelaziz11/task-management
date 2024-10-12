@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Auth\AuthenticationController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +15,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::middleware('guest')->group(function () {
+    Route::get('login', [AuthenticationController::class, 'create'])->name('login'); 
+});
+
+Route::middleware('auth')->group(function () {
+    Route::get('/',[HomeController::class,'index'])->name('home');
 });
