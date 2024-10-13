@@ -1,7 +1,10 @@
 <?php
 
 use App\Http\Controllers\Auth\AuthenticationController;
+use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ManageEmployeeController;
+use App\Http\Controllers\TaskController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,4 +27,10 @@ Route::middleware('auth')->group(function () {
     Route::post('logout', [AuthenticationController::class, 'logout'])->name('logout');
 
     Route::get('/',[HomeController::class,'index'])->name('home');
+
+    Route::resource('employees', EmployeeController::class);
+
+    Route::get('tasks', [TaskController::class,'index']);
+
+
 });

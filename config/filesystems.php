@@ -36,6 +36,13 @@ return [
             'throw' => false,
         ],
 
+        'public_folder' => [
+            'driver' => 'local',
+            'root' => public_path('/uploads/photos'),
+            'url' => env('APP_URL') . '/uploads/photos',
+            'visibility' => 'public',
+        ],
+
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),
