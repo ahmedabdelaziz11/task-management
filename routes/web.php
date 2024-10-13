@@ -1,9 +1,9 @@
 <?php
 
 use App\Http\Controllers\Auth\AuthenticationController;
+use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\ManageEmployeeController;
 use App\Http\Controllers\TaskController;
 use Illuminate\Support\Facades\Route;
 
@@ -28,9 +28,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/',[HomeController::class,'index'])->name('home');
 
-    Route::resource('employees', EmployeeController::class);
-
+    Route::get('employees', [EmployeeController::class,'index']);
     Route::get('tasks', [TaskController::class,'index']);
-
-
+    Route::get('departments', [DepartmentController::class,'index']);
 });

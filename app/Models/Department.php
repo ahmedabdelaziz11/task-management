@@ -17,4 +17,10 @@ class Department extends Model
     {
         return $this->hasMany(User::class, 'department_id');
     }
+
+    public function scopeWithEmployeeStats($query)
+    {
+        return $query->withCount('employees')
+                    ->withSum('employees', 'salary');
+    }
 }

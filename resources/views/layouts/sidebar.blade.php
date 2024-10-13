@@ -33,16 +33,22 @@
                         <span class="hide-menu">employees</span>
                     </a>
                 </li>
-                @if(auth()->user() && auth()->user()->role === App\Enums\UserRole::MANAGER->value)
-                    <li class="sidebar-item">
-                        <a class="sidebar-link" href="/tasks" aria-expanded="false">
-                            <span>
-                                <i class="ti ti-layout-dashboard"></i>
-                            </span>
-                            <span class="hide-menu">tasks</span>
-                        </a>
-                    </li>
-                @endif
+                <li class="sidebar-item">
+                    <a class="sidebar-link" href="/tasks" aria-expanded="false">
+                        <span>
+                            <i class="ti ti-layout-dashboard"></i>
+                        </span>
+                        <span class="hide-menu">tasks</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link" href="/departments" aria-expanded="false">
+                        <span>
+                            <i class="ti ti-layout-dashboard"></i>
+                        </span>
+                        <span class="hide-menu">departments</span>
+                    </a>
+                </li>
         </nav>
         <!-- End Sidebar navigation -->
     </div>
